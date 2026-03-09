@@ -40,33 +40,45 @@ export default function ScrollStoryPage() {
       {/* ──────────────────────────────────────────────────────── */}
       <section className="min-h-screen flex flex-col items-center justify-center px-8 max-w-2xl mx-auto text-center">
         <div className="space-y-8">
+
           <p className="text-lg leading-relaxed text-foreground/80">
-            What does it mean to look at someone?
+            What does it mean to look at an image of someone else&apos;s life?
           </p>
+
           <p className="text-lg leading-relaxed text-foreground/80">
-            To take their image — frozen in a moment they did not choose to
-            preserve — and set it in motion again?
+            What happens when that image is reactivated—extended, animated,
+            or reinterpreted through contemporary tools?
           </p>
+
           <p className="text-sm leading-relaxed text-muted-foreground max-w-lg mx-auto">
-            These pages sit alongside photographs that have been made to move.
-            Old images, domestic ones, pulled from a family&apos;s private life
-            and animated with tools that did not exist when the shutter clicked.
-            The effect is startling. Maybe even beautiful.
+            The photographs on these pages originate in a private archive.
+            They record ordinary moments: domestic spaces, family gatherings,
+            informal portraits. They were not produced as historical documents.
           </p>
+
           <p className="text-sm leading-relaxed text-muted-foreground max-w-lg mx-auto">
-            But beauty is not innocence.
+            Here, they are set into motion using contemporary image-generation
+            systems. Motion, however, is not neutral. It introduces interpretation,
+            interpolation, and invention.
           </p>
+
           <p className="text-sm leading-relaxed text-muted-foreground max-w-lg mx-auto">
-            The texts gathered here ask you to hold two things at once: the
-            tenderness of wanting to know, and the violence that wanting to know
-            has always carried with it. They ask what it means to tell
-            someone&apos;s story. Who that telling is for. And what we owe the
-            people whose lives we are handling.
+            The accompanying texts address a related problem: how lives become
+            legible through archives, images, and research. Scholars of history,
+            anthropology, and Black studies have long noted that the desire to
+            document and explain other people&apos;s lives is never purely descriptive.
+            It is also a structure of power.
           </p>
+
           <p className="text-sm leading-relaxed text-muted-foreground max-w-lg mx-auto">
-            Read slowly. Look carefully. And consider what you cannot see.
+            Rather than resolving that tension, this project places it in view.
+            The materials that follow move between documentation, interpretation,
+            and speculation. They ask what becomes visible in the process—and
+            what necessarily remains opaque.
           </p>
+
         </div>
+
         <p className="mt-16 text-xs text-muted-foreground/60 animate-pulse">
           Scroll to begin
         </p>
