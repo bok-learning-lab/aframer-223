@@ -1,47 +1,47 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-8">
-      <div className="mx-auto max-w-2xl">
-        <h1 className="text-4xl font-bold">Your Project</h1>
+    <main className="min-h-screen flex flex-col items-center justify-center px-8">
+      <div className="max-w-2xl w-full text-center">
+        <h1 className="text-5xl font-bold tracking-tighter">
+          A Project Machine
+        </h1>
         <p className="mt-4 text-muted-foreground">
-          Edit <code className="rounded bg-muted px-1.5 py-0.5 text-sm">app/page.tsx</code> to get started.
+          Two explorations of the image, the gaze, and the space between.
         </p>
 
-        <div className="mt-8 flex gap-4">
-          <Button asChild>
-            <Link href="/docs">View Documentation</Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <a
-              href="https://ui.shadcn.com/docs/components"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              shadcn/ui Components
-            </a>
-          </Button>
-        </div>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link href="/scroll-story" className="group">
+            <Card className="h-full transition-colors border-border/50 hover:border-foreground/30">
+              <CardHeader>
+                <CardTitle className="text-lg">Scroll Story</CardTitle>
+                <CardDescription>
+                  A scrolling narrative pairing animated photographs with texts
+                  on opacity, privacy, and the ethics of seeing.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
 
-        <section className="mt-12 space-y-4">
-          <h2 className="text-2xl font-semibold">Quick Links</h2>
-          <ul className="list-inside list-disc space-y-2 text-muted-foreground">
-            <li>
-              <Link href="/docs" className="text-foreground underline underline-offset-4 hover:text-primary">
-                Documentation
-              </Link>
-              {" "}&mdash; Learn how to use this template
-            </li>
-            <li>
-              <Link href="/docs/getting-started" className="text-foreground underline underline-offset-4 hover:text-primary">
-                Getting Started
-              </Link>
-              {" "}&mdash; Set up your development environment
-            </li>
-          </ul>
-        </section>
+          <Link href="/gallery" className="group">
+            <Card className="h-full transition-colors border-border/50 hover:border-foreground/30">
+              <CardHeader>
+                <CardTitle className="text-lg">3D Gallery</CardTitle>
+                <CardDescription>
+                  Photographs floating in three-dimensional space. Drag to
+                  orbit, scroll to zoom.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+        </div>
       </div>
     </main>
   );
