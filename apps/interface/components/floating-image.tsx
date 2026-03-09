@@ -1,15 +1,22 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 
-interface FloatingImageProps {
+interface WallImageProps {
   src: string;
-  position: readonly [number, number, number];
+  position: [number, number, number];
+  rotation?: [number, number, number];
+  height?: number;
 }
 
-export function FloatingImage({ src, position }: FloatingImageProps) {
+export function WallImage({
+  src,
+  position,
+  rotation = [0, 0, 0],
+  height = 1.8,
+}: WallImageProps) {
   const texture = useLoader(THREE.TextureLoader, src);
   const meshRef = useRef<THREE.Mesh>(null);
   const [aspect, setAspect] = useState(4 / 3);
@@ -23,22 +30,12 @@ export function FloatingImage({ src, position }: FloatingImageProps) {
     }
   }, [texture]);
 
-  const planeHeight = 2;
-  const planeWidth = planeHeight * aspect;
-
-  // Subtle floating animation
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.position.y =
-        position[1] +
-        Math.sin(state.clock.elapsedTime * 0.5 + position[0]) * 0.1;
-    }
-  });
+  const planeWidth = height * aspect;
 
   return (
-    <mesh ref={meshRef} position={[position[0], position[1], position[2]]}>
-      <planeGeometry args={[planeWidth, planeHeight]} />
-      <meshBasicMaterial map={texture} side={THREE.DoubleSide} />
+    <mesh ref={meshRef} position={position} rotation={rotation}>
+      <planeGeometry args={[planeWidth, height]} />
+      <meshBasicMaterial map={texture} />
     </mesh>
   );
 }

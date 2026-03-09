@@ -15,7 +15,8 @@ export default function GalleryPage() {
         &larr; Back
       </Link>
       <p className="fixed bottom-6 left-6 z-50 text-xs text-white/30">
-        Drag to orbit &middot; Scroll to zoom
+        Click to look around &middot; WASD or arrow keys to move &middot; Esc
+        to release
       </p>
       <GalleryClient />
     </main>
