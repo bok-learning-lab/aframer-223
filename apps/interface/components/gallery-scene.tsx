@@ -23,25 +23,31 @@ const images = [
   { src: "/photos/Unknown-14.jpeg", position: [0, 0, -10] as const },
 ];
 
-export function GalleryScene() {
+function Scene() {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 5], fov: 60 }}
-      style={{ width: "100%", height: "100%" }}
-    >
+    <>
       <ambientLight intensity={1} />
-
       <OrbitControls
         enableDamping
         dampingFactor={0.05}
         minDistance={2}
         maxDistance={20}
       />
+      {images.map((img, i) => (
+        <FloatingImage key={i} src={img.src} position={img.position} />
+      ))}
+    </>
+  );
+}
 
+export function GalleryScene() {
+  return (
+    <Canvas
+      camera={{ position: [0, 0, 5], fov: 60 }}
+      style={{ width: "100%", height: "100%" }}
+    >
       <Suspense fallback={null}>
-        {images.map((img, i) => (
-          <FloatingImage key={i} src={img.src} position={img.position} />
-        ))}
+        <Scene />
       </Suspense>
     </Canvas>
   );

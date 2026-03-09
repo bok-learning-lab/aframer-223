@@ -104,6 +104,11 @@ export function ScrollVideoPlayer({
                 muted
                 playsInline
                 preload="auto"
+                onLoadedData={(e) => {
+                  // Force the browser to render the first frame
+                  const video = e.currentTarget;
+                  video.currentTime = 0.001;
+                }}
                 onError={() => setVideoError(true)}
                 className="w-full aspect-video rounded-lg object-cover"
               />

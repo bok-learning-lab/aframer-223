@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import { useTexture } from "@react-three/drei";
+import { useRef, useState, useEffect } from "react";
+import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 
 interface FloatingImageProps {
@@ -11,11 +10,18 @@ interface FloatingImageProps {
 }
 
 export function FloatingImage({ src, position }: FloatingImageProps) {
-  const texture = useTexture(src);
-  const meshRef = useRef<THREE.Mesh>(null!);
+  const texture = useLoader(THREE.TextureLoader, src);
+  const meshRef = useRef<THREE.Mesh>(null);
+  const [aspect, setAspect] = useState(4 / 3);
 
-  const img = texture.image as HTMLImageElement | undefined;
-  const aspect = img ? img.width / img.height : 4 / 3;
+  useEffect(() => {
+    if (texture.image) {
+      const img = texture.image as HTMLImageElement;
+      if (img.width && img.height) {
+        setAspect(img.width / img.height);
+      }
+    }
+  }, [texture]);
 
   const planeHeight = 2;
   const planeWidth = planeHeight * aspect;
