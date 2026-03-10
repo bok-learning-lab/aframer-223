@@ -4,6 +4,7 @@ import { Suspense, useEffect, useRef, useMemo } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { PointerLockControls } from "@react-three/drei";
 import { WallImage } from "./floating-image";
+import { WallVideo } from "./wall-video";
 import * as THREE from "three";
 
 // ─── Layout constants ────────────────────────────────────────────
@@ -235,8 +236,9 @@ function GalleryImages() {
     }
 
     // South alcove — image on back wall, facing north (-Z)
+    // Skip first south alcove (i=0) — video goes there
     const southIdx = NUM_ALCOVES + i;
-    if (southIdx < imageSources.length) {
+    if (i > 0 && southIdx < imageSources.length) {
       placements.push({
         src: imageSources[southIdx],
         position: [
@@ -390,6 +392,28 @@ function FloorGrid() {
   );
 }
 
+// ─── Video placements ────────────────────────────────────────────
+function GalleryVideos() {
+  // Place video in the first south alcove (facing north into corridor)
+  const alcoveCenterX = ALCOVE_GAP / 2 + ALCOVE_WIDTH / 2;
+
+  return (
+    <WallVideo
+      src="/videos/hyper_e_2603101259_0015_h264.mp4"
+      position={[
+        alcoveCenterX - 0.5,
+        EYE_HEIGHT,
+        HALF_CORRIDOR + ALCOVE_DEPTH - WALL_THICKNESS - 0.05,
+      ]}
+      rotation={[0, Math.PI, 0]}
+      height={2}
+      maxWidth={ALCOVE_WIDTH - 0.5}
+      refDistance={5}
+      rolloffFactor={1.5}
+    />
+  );
+}
+
 // ─── Scene ───────────────────────────────────────────────────────
 function Scene() {
   return (
@@ -400,6 +424,7 @@ function Scene() {
       <Ceiling />
       <MazeWalls />
       <GalleryImages />
+      <GalleryVideos />
       <PlayerControls />
     </>
   );

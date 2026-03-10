@@ -114,7 +114,7 @@ export default function ScrollStoryPage() {
       {/* Section Two: The Stalking Gaze */}
       {/* ──────────────────────────────────────────────────────── */}
       <ScrollVideoPlayer
-        videoSrc="/videos/catacomb_a_vintage_photograph--_the_person_or_people_come_to__863fb420-98b5-43b1-9540-9f7c375814c5_3.mp4"
+        videoSrc="/videos/catacomb_httpss.mj.runs3JU8lKrIMQ_a_vintage_photograph--_the__d94e2cdd-d89b-4190-bda8-89660b950b8a_2.mp4"
       >
         <h2 className="text-lg font-semibold tracking-tight mb-6 text-foreground/60 uppercase">
           The Stalking Gaze
@@ -199,7 +199,7 @@ export default function ScrollStoryPage() {
       {/* Section Five: Identity on Its Own Terms */}
       {/* ──────────────────────────────────────────────────────── */}
       <ScrollVideoPlayer
-        videoSrc="/videos/catacomb_httpss.mj.run6KgbrNU6Y2s_a_vintage_photograph--_the__5095fc97-376c-45d4-acca-733e793b94a0_2.mp4"
+        videoSrc="/videos/catacomb_httpss.mj.runUkybUSW05M4_a_vintage_photograph--_the__14dad0b4-c2b6-42a5-bb47-02ab641dd21a_1.mp4"
       >
         <h2 className="text-lg font-semibold tracking-tight mb-6 text-foreground/60 uppercase">
           Identity on Its Own Terms
